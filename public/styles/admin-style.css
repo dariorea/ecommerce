@@ -1,0 +1,143 @@
+:root {
+    --naranja: rgb(235, 36, 21);
+}
+/* Reset de Estilos */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    box-sizing: border-box;
+}
+
+.nav {
+    background-color: var(--naranja);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 90px;
+}
+.nav img {
+    width: 110px;
+    height: 90px;
+}
+.nav i {
+    color: white;
+    font-size: 30px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.lista-nav {
+    width: 300px;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+}
+.panel-admin {
+    margin-top: 90px;
+    background-color: var(--naranja);
+    position: absolute;
+    right: 0;
+    width: 300px;
+    font-size: 25px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    gap: 10px;
+    display: none;
+}
+.panel-admin a {
+    color: white;
+    text-decoration: none;
+}
+.panel-admin a:hover {
+    font-weight: 700;
+}
+.name-user {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+.title {
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.active {
+    display: flex;
+    transition: .2s ease-in;
+}
+.form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: var(--naranja);
+    display: none;
+}
+.form h2 {
+    color: white;
+}
+.form input {
+    width: 250px;
+    height: 30px;
+    border: none;
+}
+.card-conteiner {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+.card {
+    width: 340px;
+    height: 550px;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    align-items: flex-start;
+    border: solid 2px var(--naranja);
+    overflow: hidden;
+    text-decoration: none;
+
+
+}
+.card img {
+    width: 340px;
+    height: 320px;
+}
+
+.funcionalidades-conteiner {
+    width: 100%;
+    padding-left: 10px;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+.btn-funciones {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: var(--naranja);
+    list-style: none;
+}
+.btn-funciones:hover {
+    cursor: pointer;
+}

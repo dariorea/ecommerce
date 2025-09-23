@@ -1,0 +1,98 @@
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "name": "Dario",
+    "email": "darioreaok@gmail.com",
+    "password": "Bocajuniors$12"
+}
+
+###
+GET http://localhost:3000/api/users
+
+###
+GET http://localhost:3000/api/users/68b0cf01eaa8ee2325c7dd17
+
+###
+PUT http://localhost:3000/api/users/68b0cf01eaa8ee2325c7dd17
+Content-Type: application/json
+
+{
+    "name": "Dario",
+    "address": "Calle 1697"
+}
+
+###
+DELETE http://localhost:3000/api/users/68b0cf01eaa8ee2325c7dd17
+
+
+
+###
+POST http://localhost:3000/api/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzlkMzA2NDkxYmY5NjRjMmUzZmYwOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1ODYwMTAxOSwiZXhwIjoxNzU4Njg3NDE5fQ.jHY68kEdmSfWSoQ26tGlWA3tZ35DUbkwNs6fnb6BqEA
+Content-Type: application/json
+
+{
+    "name": "PELOTA DE LIGA MUNDIAL DE CLUBES FIFA 25",
+    "type": "accesorio",
+    "price": 12000,
+    "image": "pelota-mundial-2026.webp",
+    "sizes": [
+        { "size": 4, "stock": 110},
+        { "size": 5, "stock": 510 }
+    ]
+}
+
+###
+GET http://localhost:3000/api/products/68b200c2fb6734159e4cd608
+
+###
+PUT http://localhost:3000/api/products/68cc8e647fcd4e79f1b732f6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzlkMzA2NDkxYmY5NjRjMmUzZmYwOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1ODYwMTAxOSwiZXhwIjoxNzU4Njg3NDE5fQ.jHY68kEdmSfWSoQ26tGlWA3tZ35DUbkwNs6fnb6BqEA
+Content-Type: application/json
+
+{
+    "type": "calzado",   
+    "sizes": [
+        { "size": 37, "stock": 0},
+        { "size": 38, "stock": 5 },
+        { "size": 39, "stock": 0 },
+        { "size": 40, "stock": 8 },
+        { "size": 41, "stock": 2 }
+    ]
+}
+
+###
+GET http://localhost:3000/api/products
+
+###
+DELETE http://localhost:3000/api/products/68cc8e647fcd4e79f1b732f6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzlkMzA2NDkxYmY5NjRjMmUzZmYwOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1ODYwMTAxOSwiZXhwIjoxNzU4Njg3NDE5fQ.jHY68kEdmSfWSoQ26tGlWA3tZ35DUbkwNs6fnb6BqEA
+
+###
+POST http://localhost:3000/api/users/68b4ebddb4e1a5856e9f2de5/orders
+Content-Type: application/json
+
+{
+    "products": [
+        { "product": "68b517375f131879732ef48d", "quantity": 5 },
+        { "product": "68b200c2fb6734159e4cd608", "quantity": 1 }
+    ]
+}
+
+
+
+###
+GET http://localhost:3000/api/orders
+
+###
+GET http://localhost:3000/api/orders/68b4ef0bb4e1a5856e9f2dfb
+
+###
+GET http://localhost:3000/api/orders/user/68b1f52216c142f394ce760f
+
+###
+GET http://localhost:3000/api/orders/product/remera
+
+###
+DELETE http://localhost:3000/api/orders/68b4f27db4e1a5856e9f2e3f
