@@ -10,7 +10,14 @@ const panelOpciones = document.getElementById("panel-opciones");
 const exit = document.querySelector(".exit");
 const exitUser = document.querySelector(".exit-user")
 
-const API_URL = "http://localhost:3000"; 
+
+
+
+// script.js
+const API_URL = window.location.hostname === "localhost"
+  ? "http://localhost:3000"
+  : "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
+
 
 
 
