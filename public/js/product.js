@@ -1,17 +1,20 @@
 // Leer carrito desde localStorage o iniciar vacío
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
 // Lee el ID del producto desde la URL
 const params = new URLSearchParams(window.location.search);
-const productId = params.get("id");
 
+
+const productId = params.get("id");
+const API_URL = window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
 
 const conteinerCard = document.getElementById("card-conteiner")
 const dataProduct = document.getElementById("data-product")
 
 async function cargarProducto() {
     try {
-        const res = await fetch(`http://localhost:3000/api/products/${productId}`);
+        const res = await fetch(`${API_URL}/api/products/${productId}`);
         const data = await res.json();
         console.log(data)
         const producto = data.producto

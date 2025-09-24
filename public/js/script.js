@@ -1,22 +1,21 @@
+//token data
+const userName = localStorage.getItem("userName");
+const userRole = localStorage.getItem("role");
+const exitUser = document.querySelector(".exit-user")
+
 
 const iconoAdmin = document.getElementById("icono-admin");
 const loginLink = document.getElementById("icono-registrar");
 const nameUser = document.getElementById("name-user")
 const cerrarSesion = document.getElementById("cerrar-sesion");
-const userName = localStorage.getItem("userName");
-const userRole = localStorage.getItem("role");
 const panelAdmin = document.getElementById("panel-admin");
 const panelOpciones = document.getElementById("panel-opciones");
 const exit = document.querySelector(".exit");
-const exitUser = document.querySelector(".exit-user")
 
-
-
-
-// script.js
+// url
 const API_URL = window.location.hostname === "localhost"
-  ? "http://localhost:3000"
-  : "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
+? "http://localhost:3000"
+: "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
 
 
 
@@ -55,6 +54,7 @@ const logout = () => {
     localStorage.removeItem("userId");
     localStorage.removeItem("userName");
     localStorage.removeItem("role")
+    localStorage.removeItem("userEmail")
     // Redirigir al login o inicio
     window.location.href = "../index.html"; 
 }
@@ -69,16 +69,6 @@ if (userName) {
 }
 
 
-
-
-
-//if (userName) {
-//    loginLink.innerHTML = `<p>¡Hola ${userName}!</p>`;  // mostrar el nombre
-//    loginLink.href = "#";
-//    loginLink.classList.add("name-user") // opcional, no va a login
-//} else {
-//    loginLink.innerHTML = '<a href="../pages/login.html"><i class="bi bi-person-fill"></i></a>';
-//}
 nameUser.addEventListener("click", () => {
     abrirCerrar(panelOpciones, panelAdmin)
 })
@@ -114,5 +104,42 @@ export const cargarProductos = async () => {
         conteinerCard.appendChild(card)
     });
 }
+
+const input = document.getElementById("buscador");
+const resultados = document.getElementById("conteiner-resultados");
+
+const buscar = async (query) => {
+    try {
+        const res = await fetch(`${API_URL}/api/products/search?q=${encodeURIComponent(query)}`);
+        const data = await res.json();
+        console.log("respuesta del backend:", data);
+        // limpiar resultados previos
+        resultados.innerHTML = "";
+        data.products.forEach(item => {
+        const li = document.createElement("div");
+        li.classList.add("card-resultados")
+        li.innerHTML = `
+            <img src= ${API_URL}/images/${item.image} alt=${item.name}></img>
+            <a href=${API_URL}/pages/product.html?id=${item._id}>${item.name}</a>
+        ` // depende de tu modelo
+        resultados.appendChild(li);
+    });
+    } catch (error) {
+        console.error("Error al buscar:", error);
+    }
+};
+    let timeout;
+    input.addEventListener("input", (e) => {
+        clearTimeout(timeout);
+        const valor = e.target.value.trim();
+    timeout = setTimeout(() => {
+        if (valor.length > 0) {
+            buscar(valor);
+        } else {
+            resultados.innerHTML = "";
+        }
+    }, 300); // espera 300ms después de escribir
+});
+
 
 cargarProductos()

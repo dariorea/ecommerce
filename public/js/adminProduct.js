@@ -5,10 +5,11 @@ const formAgregar = document.getElementById("form-agregar");
 const formEliminar = document.getElementById("form-eliminar");
 const formActualizar = document.getElementById("form-actualizar");
 const panel = document.getElementById("panel-admin");
-const API_URL = "http://localhost:3000/api/products";
 
 
-
+const API_URL = window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
 
 //para abrir y cerrar las opciones admin
 iconoAdmin.addEventListener("click", () => {
@@ -67,7 +68,7 @@ document.getElementById("form-agregar").addEventListener("submit", async(e)=> {
         ]
     };
     try {
-        const res = await fetch(API_URL, {
+        const res = await fetch(`${API_URL}/api/products`, {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json",
@@ -165,7 +166,7 @@ document.getElementById("form-actualizar").addEventListener("submit", async (e) 
 
 
 export const cargarProductos = async () => {
-    const res = await fetch(API_URL);
+    const res = await fetch(`${API_URL}/api/products`);
     const data = await res.json();
     const conteinerCard = document.getElementById("card-conteiner")
 

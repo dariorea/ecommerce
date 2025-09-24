@@ -1,9 +1,12 @@
 const token = localStorage.getItem("token");
-const API_URL = "http://localhost:3000/api/users";
+const API_URL = window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
+    
 const conteinerCard = document.getElementById("card-conteiner")
 
 const cargarUsuarios = async () => {
-    const res = await fetch(API_URL)
+    const res = await fetch(`${API_URL}/api/users`)
     const data = await res.json()
 console.log(data)
 

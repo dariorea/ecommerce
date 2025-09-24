@@ -1,8 +1,10 @@
 const token = localStorage.getItem("token"); // 👈 Solo admins deberían tener acceso
-const API_URL = "http://localhost:3000/api/orders"
+const API_URL = window.location.hostname === "localhost"
+? "http://localhost:3000"
+: "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
 
 const cargarOrdenes = async () => {
-    const res = await fetch(API_URL);
+    const res = await fetch(`${API_URL}/api/orders`);
     const data = await res.json();
     //const conteinerCard = document.getElementById("cardconteiner")
     console.log(data)
@@ -11,7 +13,7 @@ const cargarOrdenes = async () => {
     data.orders.forEach(order => {
         const card = document.createElement("div");
         card.className = "card";
-      
+
         // Header de la orden
         const header = document.createElement("div");
         header.className = "order-header";

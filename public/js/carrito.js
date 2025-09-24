@@ -90,6 +90,11 @@ function eliminarProducto(element) {
 //const userId = "68b4ebddb4e1a5856e9f2de5"; // <- después lo reemplazás por el real
 
 
+const API_URL = window.location.hostname === "localhost"
+? "http://localhost:3000"
+: "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
+
+
 // Función para finalizar compra
 async function finalizarCompra() {
     if (carrito.length === 0) {
@@ -107,7 +112,7 @@ async function finalizarCompra() {
             }))
         };
         // Creamos la respuesta para mandar la orden a la base de datos
-        const res = await fetch(`http://localhost:3000/api/orders`, {
+        const res = await fetch(`${API_URL}/api/orders`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

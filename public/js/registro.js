@@ -1,4 +1,3 @@
-
 // Recuperar token guardado al iniciar sesión
 const token = localStorage.getItem("token");
 
@@ -24,13 +23,17 @@ document.getElementById("submit-btn").addEventListener("click", async () => {
         return;
     }
 
-    const url = isRegister 
-    ? "http://localhost:3000/api/auth/register" 
-    : "http://localhost:3000/api/auth/login";
+    const API_URL = window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
 
-    const body = isRegister 
-    ? { name, email, password } 
-    : { email, password };
+
+
+    const url = isRegister 
+    ? `${API_URL}/api/auth/register`
+    : `${API_URL}/api/auth/login`;
+
+    const body = isRegister ? { name, email, password } : { email, password };
 
     try {
         const res = await fetch(url, {
