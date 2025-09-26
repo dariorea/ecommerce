@@ -56,7 +56,15 @@
     display: flex;
     list-style: none;
     align-items: center;
+    justify-content: centers;
     gap: 20px;
+}
+.lista-nav li {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .lista-nav a {
     display: flex;
@@ -77,12 +85,12 @@
 }
 .panel {
     width: 250px;
-    margin-top: 90px;
     background-color: var(--naranja);
     position: absolute;
     font-size: 20px;
     flex-direction: column;
     padding-left: 10px;
+    position: fixed;
 }
 .exit, .exit-user{
     display: flex;
@@ -93,6 +101,7 @@
 .panel-opciones {
     right: 130px;
     display: none;
+
 }
 .panel-admin {
     right: 270px;
@@ -109,26 +118,45 @@
 .resultados {
     display: flex;
     flex-direction: column;
+    position: fixed;
 }
 .conteiner-card-resultados {
     position: absolute;
     left: 430px;
-    top: 90px;
-    border-left: solid 2px gray;
-    border-right: solid 2px gray;
+    height: 200px;      /* alto fijo */
+    overflow-y: auto;   /* scroll vertical automático */
+    overflow-x: hidden; /* oculta scroll horizontal */
+}
+/* Estilo del scroll */
+.conteiner-card-resultados::-webkit-scrollbar {
+    width: 10px;              /* ancho de la barra */
+}
+/* Fondo de la barra */
+.conteiner-card-resultados::-webkit-scrollbar-track {
+    background: rgb(199, 199, 199);       
+    border-radius: 10px;
+}
+/* "Thumb" (la parte que se mueve) */
+.conteiner-card-resultados::-webkit-scrollbar-thumb {
+    background: var(--naranja);          
+    border-radius: 10px;
 }
 .card-resultados {
     display: flex;
     align-items: center;
+    height: 90px;
     gap: 20px;
     font-size: 20px;
     width: 450px;
     background-color: white;
-    border-bottom: solid 2px gray;
+    padding: 0 10px 0 10px;
+    border-left: solid 1px rgb(194, 192, 192);
+    border-bottom: solid 1px rgb(194, 192, 192);
 }
 .card-resultados img {
     width: 60px;
     height: 60px;
+    border-radius: 20px;
 }
 .card-resultados a {
     text-decoration: none;

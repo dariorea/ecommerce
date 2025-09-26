@@ -32,7 +32,7 @@ const abrirCerrar = (e, d) => {
 }
 
 if (userRole === "admin") {
-    iconoAdmin.style.display = "block";
+    iconoAdmin.style.display = "flex";
 }
 iconoAdmin.addEventListener("click", () => {
     abrirCerrar(panelAdmin, panelOpciones)
@@ -63,9 +63,9 @@ cerrarSesion.addEventListener("click", logout)
 
 if (userName) {
     nameUser.innerText =`¡Hola ${userName}!`
-    nameUser.style.display = "block";
+    nameUser.style.display = "flex";
 } else {
-    loginLink.style.display = "block";
+    loginLink.style.display = "flex";
 }
 
 
