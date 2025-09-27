@@ -1,49 +1,33 @@
-//console.log("hola desde search")
-//const input = document.getElementById("buscador");
-//const resultados = document.getElementById("conteiner-resultados");
-//
-//const API_URL = window.location.hostname === "localhost"
-//? "http://localhost:3000"
-//: "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
-//
-//
-//
-//// función para consultar la API
-//const buscar = async (query) => {
-//  try {
-//    const res = await fetch(`${API_URL}/api/products/search?q=${encodeURIComponent(query)}`);
-//    const data = await res.json();
-//console.log("respuesta del backend:", data);
-//
-//
-//    // limpiar resultados previos
-//    resultados.innerHTML = "";
-//
-//    data.products.forEach(item => {
-//      const li = document.createElement("div");
-//      li.classList.add("card-resultados")
-//      li.innerHTML = `
-//        <img src= ${API_URL}/images/${item.image} alt=${item.name}></img>
-//        <a href=${API_URL}/pages/product.html?id=${item._id}>${item.name}</a>
-//      ` // depende de tu modelo
-//      resultados.appendChild(li);
-//    });
-// 
-//  } catch (error) {
-//    console.error("Error al buscar:", error);
-//  }
-//};
-//
-//let timeout;
-//input.addEventListener("input", (e) => {
-//  clearTimeout(timeout);
-//  const valor = e.target.value.trim();
-//
-//  timeout = setTimeout(() => {
-//    if (valor.length > 0) {
-//      buscar(valor);
-//    } else {
-//      resultados.innerHTML = "";
-//    }
-//  }, 300); // espera 300ms después de escribir
-//});
+// url
+const API_URL = window.location.hostname === "localhost"
+? "http://localhost:3000"
+: "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
+
+const conteinerProducts = document.querySelector(".card-conteiner")
+
+const cargarProductos = async () => {
+    const res = await fetch(`${API_URL}/api/products`);
+    const data = await res.json();
+console.log("hola")
+    data.products.forEach(p => {
+        if(p.category === conteinerProducts.id) {
+            const card = document.createElement("a")
+            card.href = `./pages/product.html?id=${p._id}`;  
+            card.classList.add("card")
+            const imagen = document.createElement("img");
+            imagen.src = `${API_URL}/images/${p.image}`;        
+            imagen.alt = `${p.name}`;
+            const nameProduct = document.createElement("h3");
+            nameProduct.textContent = `${p.name}`;
+            nameProduct.classList.add("card-title")
+            const priceProduct = document.createElement("h2");
+            priceProduct.textContent = `$${p.price}`;
+            priceProduct.classList.add("card-price");
+            card.appendChild(imagen);
+            card.appendChild(nameProduct);
+            card.appendChild(priceProduct);
+            conteinerProducts.appendChild(card);
+        }
+    });
+}
+cargarProductos()

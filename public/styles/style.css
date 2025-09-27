@@ -1,5 +1,5 @@
 :root {
-    --naranja: rgb(235, 36, 21);
+    --naranja: rgb(238, 44, 30);
 }
 /* Reset de Estilos */
 * {
@@ -17,11 +17,11 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: 90px;
+    height: 100px;
 }
 .nav img {
-    width: 110px;
-    height: 90px;
+    width: 130px;
+    height: 100px;
 }
 .nav i {
     color: white;
@@ -60,7 +60,7 @@
     gap: 20px;
 }
 .lista-nav li {
-    height: 90px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,12 +85,14 @@
 }
 .panel {
     width: 250px;
+    top: 100px;
     background-color: var(--naranja);
     position: absolute;
     font-size: 20px;
     flex-direction: column;
     padding-left: 10px;
     position: fixed;
+    z-index: 5;
 }
 .exit, .exit-user{
     display: flex;
@@ -119,32 +121,34 @@
     display: flex;
     flex-direction: column;
     position: fixed;
+    z-index: 10;
 }
 .conteiner-card-resultados {
-    position: absolute;
+    position: fixed;
+    top: 100px;
     left: 430px;
-    height: 200px;      /* alto fijo */
+    height: 250px;      /* alto fijo */
     overflow-y: auto;   /* scroll vertical automático */
     overflow-x: hidden; /* oculta scroll horizontal */
 }
 /* Estilo del scroll */
 .conteiner-card-resultados::-webkit-scrollbar {
-    width: 10px;              /* ancho de la barra */
+    width: 5px;              /* ancho de la barra */
 }
 /* Fondo de la barra */
 .conteiner-card-resultados::-webkit-scrollbar-track {
     background: rgb(199, 199, 199);       
-    border-radius: 10px;
+    border-radius: 5px;
 }
 /* "Thumb" (la parte que se mueve) */
 .conteiner-card-resultados::-webkit-scrollbar-thumb {
     background: var(--naranja);          
-    border-radius: 10px;
+    border-radius: 5px;
 }
 .card-resultados {
     display: flex;
     align-items: center;
-    height: 90px;
+    height: 100px;
     gap: 20px;
     font-size: 20px;
     width: 450px;
@@ -152,6 +156,7 @@
     padding: 0 10px 0 10px;
     border-left: solid 1px rgb(194, 192, 192);
     border-bottom: solid 1px rgb(194, 192, 192);
+
 }
 .card-resultados img {
     width: 60px;
@@ -162,13 +167,56 @@
     text-decoration: none;
     color: black;
 }
-.title {
-    margin-top: 90px;
-    height: 50px;
+.categorias-conteiner {
+    margin-top: 100px;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(236, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    font-weight: 500;
+    font-size: 20px;
+    gap: 30px;
+    border-bottom: 2px solid rgb(175, 175, 175);
+    border-top: 2px solid rgb(175, 175, 175);
+    position: fixed;
+    z-index: 1;
+}
+
+.flyer {
+    margin-top: 160px;
+    width: 100%;
+}
+.triplo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.triplo-title {
+    height: 80px;
+    font-size: 25px;
     display: flex;
     align-items: center;
-    padding-left: 30px;
-    font-size: 10px;
+    justify-content: center;
+}
+.triplo-images {
+    display: flex;
+    gap: 20px;
+}
+.triplo-images img {
+    width: 450px;
+}
+.title {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border: solid 1px gray;
 }
 .card-conteiner {
     width: 100%;
@@ -176,7 +224,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    
 }
 .card {
     width: 340px;
