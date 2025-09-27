@@ -1,7 +1,6 @@
-// url
-const API_URL = window.location.hostname === "localhost"
+const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
 ? "http://localhost:3000"
-: "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
+: "https://ecommerce-1-1h6x.onrender.com";
 
 const conteinerProducts = document.querySelector(".card-conteiner")
 
@@ -15,8 +14,9 @@ console.log("hola")
             card.href = `./pages/product.html?id=${p._id}`;  
             card.classList.add("card")
             const imagen = document.createElement("img");
-            imagen.src = `${API_URL}/images/${p.image}`;        
-            imagen.alt = `${p.name}`;
+         // Manejar imagen local o URL externa
+            imagen.src = p.image.startsWith("http") ? p.image : `${API_URL}/images/${p.image}`;
+            imagen.alt = p.name;
             const nameProduct = document.createElement("h3");
             nameProduct.textContent = `${p.name}`;
             nameProduct.classList.add("card-title")

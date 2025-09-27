@@ -184,7 +184,9 @@
     position: fixed;
     z-index: 1;
 }
-
+.category-title {
+    height: 160px;
+}
 .flyer {
     margin-top: 160px;
     width: 100%;

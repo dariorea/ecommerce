@@ -3,8 +3,8 @@ import Product from "../models/productModel.js";
 //CREAR UN PRODUCTO
 export const createProduct = async (req, res) => {
     try {
-        const {name, type, price, image, sizes} = req.body
-        const newProduct = new Product({name, type, price, image, sizes})
+        const {name, category, type, price, image, sizes} = req.body
+        const newProduct = new Product({name, category, type, price, image, sizes})
         const saveProduct = await newProduct.save()
         res.status(201).json({
             mensaje: "producto creado exitosamente",
@@ -111,3 +111,27 @@ export const searchProducts = async (req, res) => {
       res.status(500).json({ error: "Error en búsqueda" });
     }
   };
+
+  // ACTUALIZAR PARCIALMENTE (PATCH)
+export const patchProduct = async (req, res) => {
+    try {
+      const id = req.params.id;
+      const updates = req.body;
+  
+      const updatedProduct = await Product.findByIdAndUpdate(
+        id,
+        { $set: updates },   // aplicamos solo los cambios enviados
+        { new: true, runValidators: true } // new devuelve el actualizado, runValidators valida el schema
+      );
+  
+      if (!updatedProduct) {
+        return res.status(404).json({ mensaje: "producto no encontrado" });
+      }
+  
+      res.status(200).json({ mensaje: "producto actualizado", productUpdate: updatedProduct });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ mensaje: "Error al actualizar el producto", error });
+    }
+  };
+  

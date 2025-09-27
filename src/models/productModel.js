@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 
 const productSchema = mongoose.Schema({
     name: { type: String, required: true },
+    category: {
+        type: String,
+        enum: ["hombre", "mujer", "kids", "unisex"],
+        default: "unisex"
+    },
     type: { 
         type: String, 
         enum: ["ropa", "calzado", "accesorio"], // opcional, para poder filtrar

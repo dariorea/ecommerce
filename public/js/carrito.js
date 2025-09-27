@@ -90,9 +90,10 @@ function eliminarProducto(element) {
 //const userId = "68b4ebddb4e1a5856e9f2de5"; // <- después lo reemplazás por el real
 
 
-const API_URL = window.location.hostname === "localhost"
+const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
 ? "http://localhost:3000"
-: "https://ecommerce-1-1h6x.onrender.com"; // URL de Render
+: "https://ecommerce-1-1h6x.onrender.com";
+
 
 
 // Función para finalizar compra

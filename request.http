@@ -29,17 +29,23 @@ DELETE http://localhost:3000/api/users/68b0cf01eaa8ee2325c7dd17
 
 ###
 POST http://localhost:3000/api/products
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzlkMzA2NDkxYmY5NjRjMmUzZmYwOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1ODYwMTAxOSwiZXhwIjoxNzU4Njg3NDE5fQ.jHY68kEdmSfWSoQ26tGlWA3tZ35DUbkwNs6fnb6BqEA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzlkMzA2NDkxYmY5NjRjMmUzZmYwOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1ODg2NTUwMywiZXhwIjoxNzU4OTUxOTAzfQ.xsGGwc9mEow3fECTe04klyMT56whAOwYQeaC6VR3JmE
 Content-Type: application/json
 
 {
-    "name": "PELOTA DE LIGA MUNDIAL DE CLUBES FIFA 25",
-    "type": "accesorio",
-    "price": 12000,
-    "image": "pelota-mundial-2026.webp",
+    "name": "Buzo con Cierre River Plate adidas UBP 2025 Hombre",
+    "category": "hombre",
+    "type": "ropa",
+    "price": 179999,
+    "image": "campera-river.webp",
     "sizes": [
-        { "size": 4, "stock": 110},
-        { "size": 5, "stock": 510 }
+        { "size": "XS", "stock": 0 },
+        { "size": "S", "stock": 18 },
+        { "size": "M", "stock": 40 },
+        { "size": "L", "stock": 64 },
+        { "size": "XL", "stock": 42 },
+        { "size": "XXL", "stock": 40 },
+        { "size": "XXXL", "stock": 0 }
     ]
 }
 
@@ -60,6 +66,15 @@ Content-Type: application/json
         { "size": 40, "stock": 8 },
         { "size": 41, "stock": 2 }
     ]
+}
+
+###
+PATCH http://localhost:3000/api/products/68d76d0a4ba9cf7fc01ff5e5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzlkMzA2NDkxYmY5NjRjMmUzZmYwOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1ODg2NTUwMywiZXhwIjoxNzU4OTUxOTAzfQ.xsGGwc9mEow3fECTe04klyMT56whAOwYQeaC6VR3JmE
+Content-Type: application/json
+
+{
+    "image": "campera-nina.webp"
 }
 
 ###
