@@ -3,8 +3,8 @@ import Product from "../models/productModel.js";
 //CREAR UN PRODUCTO
 export const createProduct = async (req, res) => {
     try {
-        const {name, category, type, price, image, sizes} = req.body
-        const newProduct = new Product({name, category, type, price, image, sizes})
+        const {name, category, subcategory, type, price, image, sizes} = req.body
+        const newProduct = new Product({name, category, subcategory, type, price, image, sizes})
         const saveProduct = await newProduct.save()
         res.status(201).json({
             mensaje: "producto creado exitosamente",

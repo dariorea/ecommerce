@@ -69,19 +69,19 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:3000/api/products/68d76d0a4ba9cf7fc01ff5e5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzlkMzA2NDkxYmY5NjRjMmUzZmYwOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1ODg2NTUwMywiZXhwIjoxNzU4OTUxOTAzfQ.xsGGwc9mEow3fECTe04klyMT56whAOwYQeaC6VR3JmE
+PATCH http://localhost:3000/api/products/68d202402f2fb5c23f41a7b4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzlkMzA2NDkxYmY5NjRjMmUzZmYwOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1OTAzNjkxNiwiZXhwIjoxNzU5MTIzMzE2fQ.6HzN7SBjtkL1FFIKefYJW7nBX6Gv2LpuQezJcyQRoa4
 Content-Type: application/json
 
 {
-    "image": "campera-nina.webp"
+    "category": "mujer"
 }
 
 ###
 GET http://localhost:3000/api/products
 
 ###
-DELETE http://localhost:3000/api/products/68cc8e647fcd4e79f1b732f6
+DELETE http://localhost:3000/api/products/68b4ee9cb4e1a5856e9f2df8
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzlkMzA2NDkxYmY5NjRjMmUzZmYwOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1ODYwMTAxOSwiZXhwIjoxNzU4Njg3NDE5fQ.jHY68kEdmSfWSoQ26tGlWA3tZ35DUbkwNs6fnb6BqEA
 
 ###

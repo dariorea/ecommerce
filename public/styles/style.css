@@ -184,6 +184,10 @@
     position: fixed;
     z-index: 1;
 }
+.categorias-conteiner a {
+    text-decoration: none;
+    color: black;
+}
 .category-title {
     height: 160px;
 }
