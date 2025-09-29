@@ -1,8 +1,8 @@
-export function initAdminUI(userRole) {
+export function initAdminUI(userRole, abrirCerrar) {
     const iconoAdmin   = document.getElementById("icono-admin");
     const panelAdmin   = document.getElementById("panel-admin");
-    const panelOpciones= document.getElementById("panel-opciones");
     const exit         = document.querySelector(".exit");
+    const panelOpciones  = document.getElementById("panel-opciones");
 
     if (!iconoAdmin || !panelAdmin || !panelOpciones || !exit) return;
 

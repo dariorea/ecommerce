@@ -1,4 +1,9 @@
 import { API_URL } from "./config.js";
+import { logout } from "./admin/auth.js"
+import { abrirCerrar, initBuscador } from "./modules/cardProduct.js";
+import { initUserUI, userRole, userName} from "./modules/user.js";
+import { initAdminUI } from "./modules/adminUi.js";
+
 
 // Leer carrito desde localStorage o iniciar vacío
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -6,6 +11,14 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const params = new URLSearchParams(window.location.search);
 
 
+initAdminUI(userRole, abrirCerrar)
+initUserUI(userName, abrirCerrar, logout)
+
+initBuscador({
+    inputId: "buscador",
+    resultadosId: "conteiner-resultados",
+    apiUrl: API_URL
+});
 const productId = params.get("id");
 const conteinerCard = document.getElementById("card-conteiner")
 const dataProduct = document.getElementById("data-product")

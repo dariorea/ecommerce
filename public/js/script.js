@@ -9,9 +9,9 @@ const images = document.querySelector(".carousel-images");
 const totalImages = document.querySelectorAll(".carousel-images img").length;
 
 // EVENTOS admin ====================================================================
-initAdminUI(userRole)
+initAdminUI(userRole, abrirCerrar)
 // EVENTOS user =====================================================================
-initUserUI(userName, abrirCerrar,logout)
+initUserUI(userName, abrirCerrar, logout)
 // FUNCIONES API (Cargar productos) =================================================
 const cargarProductos = async () => {
     try {

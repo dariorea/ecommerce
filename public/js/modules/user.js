@@ -8,6 +8,8 @@ export function initUserUI(userName, abrirCerrar, logout) {
     const loginIcon    = document.getElementById("icono-registrar");
     const cerrarSesion = document.getElementById("cerrar-sesion");
     const nameUser = document.getElementById("name-user");
+    const panelOpciones= document.getElementById("panel-opciones");
+    const panelAdmin   = document.getElementById("panel-admin");
 
     if (!exitUser || !loginIcon || !nameUser || !cerrarSesion) return;
 
