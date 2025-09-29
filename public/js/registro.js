@@ -53,7 +53,7 @@ document.getElementById("submit-btn").addEventListener("click", async () => {
         localStorage.setItem("role", data.user.role)
 
         alert("✅ Bienvenido " + data.user.name);
-        window.location.href = "../index.html"; // redirigir a tu home
+        window.location.href = "/index.html"; // redirigir a tu home
     } else if (res.ok && isRegister) {
         alert("✅ Registro exitoso, ahora inicia sesión");
         toggleForm();

@@ -176,7 +176,7 @@ export const cargarProductos = async () => {
         card.classList.add("card")
 
         const imagen = document.createElement("img");
-        imagen.src = `../images/${p.image}`;        
+        imagen.src = `${API_URL}/images/${p.image}`;        
         imagen.alt = `${p.name}`;
 
         const nameProduct = document.createElement("h3");
@@ -201,12 +201,7 @@ export const cargarProductos = async () => {
             sizesDiv.appendChild(btn)
         })
 
-        card.appendChild(imagen);
-        card.appendChild(nameProduct);
-        card.appendChild(idProduct)
-        card.appendChild(priceProduct);
-        card.appendChild(sizesDiv)
-
+        card.append(imagen, nameProduct, idProduct, priceProduct, sizesDiv)
         conteinerCard.appendChild(card)
     });
 }

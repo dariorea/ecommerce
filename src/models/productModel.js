@@ -7,12 +7,12 @@ const productSchema = mongoose.Schema({
         enum: ["hombre", "mujer", "kids", "unisex"],
         default: "unisex"
     },
-    subcategory: { type: String },
-    type: { 
+    subcategory: { 
         type: String, 
         enum: ["ropa", "calzado", "accesorio"], // opcional, para poder filtrar
         default: "ropa"
     },
+    type: { type: String },
     price: { type: Number, required: true },
     image: { type: String },
     sizes: [

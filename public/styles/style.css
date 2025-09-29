@@ -18,6 +18,7 @@
     top: 0;
     width: 100%;
     height: 100px;
+    z-index: 100;
 }
 .nav img {
     width: 130px;
@@ -191,10 +192,46 @@
 .category-title {
     height: 160px;
 }
-.flyer {
-    margin-top: 160px;
+.carousel {
+
     width: 100%;
-}
+    overflow: hidden;
+  }
+
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+
+  .carousel-images a {
+    min-width: 100%; /* Cada enlace ocupa todo el ancho del carrusel */
+    text-decoration: none;
+    margin-top: 160px;
+  }
+
+  .carousel-images img {
+    width: 100%;
+    display: block;
+  }
+
+
+  .carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .prev { left: 10px; }
+  .next { right: 10px; }
+
 .triplo {
     display: flex;
     width: 100%;
