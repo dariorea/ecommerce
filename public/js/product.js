@@ -1,3 +1,5 @@
+import { API_URL } from "./config.js";
+
 // Leer carrito desde localStorage o iniciar vacío
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 // Lee el ID del producto desde la URL
@@ -5,11 +7,6 @@ const params = new URLSearchParams(window.location.search);
 
 
 const productId = params.get("id");
-const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-    ? "http://localhost:3000"
-    : "https://ecommerce-1-1h6x.onrender.com";
-
-
 const conteinerCard = document.getElementById("card-conteiner")
 const dataProduct = document.getElementById("data-product")
 
@@ -23,7 +20,7 @@ async function cargarProducto() {
         if (producto) {
             //imagen del producto
             const imagen = document.createElement("img");
-            imagen.src = `../images/${producto.image}`;        
+            imagen.src = `/images/${producto.image}`;        
             imagen.alt = `${producto.name}`;
             //nombre del producto
             const nameProduct = document.createElement("h2");
@@ -33,7 +30,6 @@ async function cargarProducto() {
             const priceProduct = document.createElement("h3");
             priceProduct.textContent = `$${producto.price}`;
             priceProduct.classList.add("data-price")
-
             //seccion talle
             const sizeTitle = document.createElement("p");
             sizeTitle.textContent = "seleccione su talle";
@@ -130,13 +126,7 @@ async function cargarProducto() {
 
         //los añadimos a los contenedores
         conteinerCard.appendChild(imagen)
-        dataProduct.appendChild(nameProduct);
-        dataProduct.appendChild(priceProduct);
-        dataProduct.appendChild(sizeTitle);
-        dataProduct.appendChild(sizesDiv); 
-        dataProduct.appendChild(titleCantidad)
-        dataProduct.appendChild(cantidadDiv);
-        dataProduct.appendChild(btnAgregar)
+        dataProduct.append(nameProduct, priceProduct, sizeTitle, sizesDiv, titleCantidad, cantidadDiv, btnAgregar)
         }
     } catch (error) {
         console.error(error)

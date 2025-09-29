@@ -1,8 +1,5 @@
+import { API_URL } from "./config.js";
 const token = localStorage.getItem("token");
-const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-? "http://localhost:3000"
-: "https://ecommerce-1-1h6x.onrender.com";
-
 
 const conteinerCard = document.getElementById("card-conteiner")
 
@@ -24,14 +21,9 @@ console.log(data)
         const roleUser = document.createElement("p")
         roleUser.textContent = `Rol: ${user.role }`
 
-        card.appendChild(idUser)
-        card.appendChild(nameUser)
-        card.appendChild(emailUser)
-        card.appendChild(roleUser)
-
+        card.append(idUser, nameUser, emailUser, roleUser)
         conteinerCard.appendChild(card)
     })
-    
 }
 
 cargarUsuarios()

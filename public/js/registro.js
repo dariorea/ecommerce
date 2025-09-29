@@ -1,3 +1,4 @@
+import { API_URL } from "./config.js";
 // Recuperar token guardado al iniciar sesión
 const token = localStorage.getItem("token");
 
@@ -22,14 +23,6 @@ document.getElementById("submit-btn").addEventListener("click", async () => {
         alert("Por favor completa todos los campos");
         return;
     }
-
-    const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-    ? "http://localhost:3000"
-    : "https://ecommerce-1-1h6x.onrender.com";
-
-
-
-
     const url = isRegister 
     ? `${API_URL}/api/auth/register`
     : `${API_URL}/api/auth/login`;

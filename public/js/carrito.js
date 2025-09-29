@@ -1,3 +1,5 @@
+import { API_URL } from "./config.js";
+
 // Leer carrito desde localStorage
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -86,15 +88,6 @@ function eliminarProducto(element) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
     renderCarrito();
 }
-// Suponiendo que ya tenés el userId guardado en localStorage o hardcodeado
-//const userId = "68b4ebddb4e1a5856e9f2de5"; // <- después lo reemplazás por el real
-
-
-const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-? "http://localhost:3000"
-: "https://ecommerce-1-1h6x.onrender.com";
-
-
 
 // Función para finalizar compra
 async function finalizarCompra() {

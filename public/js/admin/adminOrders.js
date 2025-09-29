@@ -1,8 +1,5 @@
+import { API_URL } from "./config.js";
 const token = localStorage.getItem("token"); // 👈 Solo admins deberían tener acceso
-const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-? "http://localhost:3000"
-: "https://ecommerce-1-1h6x.onrender.com";
-
 
 const cargarOrdenes = async () => {
     const res = await fetch(`${API_URL}/api/orders`);
@@ -34,12 +31,8 @@ const cargarOrdenes = async () => {
         
         const status = document.createElement("p");
         status.innerHTML = `<strong>Estado:</strong> Pendiente`;
-        
-        header.appendChild(id);
-        header.appendChild(user)
-        header.appendChild(emailUser)
-        header.appendChild(date); 
-        header.appendChild(status);
+
+        header.append(id, user, emailUser, date, status);
         
         // Lista de productos
         const productsDiv = document.createElement("div");

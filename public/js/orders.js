@@ -1,11 +1,6 @@
+import { API_URL } from "./config.js";
 const token = localStorage.getItem("token"); // 👈 Solo admins deberían tener acceso
 const userId = localStorage.getItem("userId")
-const API_URL = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
-    ? "http://localhost:3000"
-    : "https://ecommerce-1-1h6x.onrender.com";
-
-
-
 const cargarOrdenes = async () => {
     const res = await fetch(`${API_URL}/api/orders/user/${userId}`);
     const data = await res.json();
