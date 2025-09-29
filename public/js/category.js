@@ -1,5 +1,18 @@
 import { API_URL } from "./config.js";
-import { crearCardProducto } from "./modules/cardProduct.js";
+import { logout } from "./admin/auth.js"
+import { crearCardProducto,abrirCerrar, initBuscador } from "./modules/cardProduct.js";
+import { initUserUI, userRole, userName} from "./modules/user.js";
+import { initAdminUI } from "./modules/adminUi.js";
+
+
+initUserUI(userName, abrirCerrar, logout)
+initAdminUI(userRole, abrirCerrar)
+
+initBuscador({
+    inputId: "buscador",
+    resultadosId: "conteiner-resultados",
+    apiUrl: API_URL
+})
 
 const conteinerProducts = document.querySelector(".card-conteiner")
 const category = conteinerProducts.dataset.category
