@@ -7,8 +7,22 @@
     padding: 0;
     font-family: "Open Sans", sans-serif;
     box-sizing: border-box;
-}
 
+}
+/* Estilo del scroll */
+body::-webkit-scrollbar {
+  width: 5px;              /* ancho de la barra */
+}
+/* Fondo de la barra */
+body::-webkit-scrollbar-track {
+  background: rgb(199, 199, 199);       
+  border-radius: 5px;
+}
+/* "Thumb" (la parte que se mueve) */
+body::-webkit-scrollbar-thumb {
+  background: var(--naranja);          
+  border-radius: 5px;
+}
 .nav {
     background-color: var(--naranja);
     display: flex;
@@ -20,10 +34,6 @@
     height: 100px;
     z-index: 100;
 }
-.nav img {
-    width: 130px;
-    height: 100px;
-}
 .nav i {
     color: white;
     font-size: 30px;
@@ -31,22 +41,26 @@
     cursor: pointer;
 }
 .search-conteiner {
-    width: 450px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px 0 20px;
-    background-color: white;
+}
+.search-conteiner img {
+  width: 150px;
+  height: 100px;
 }
 .search-conteiner i {
-    color: var(--naranja);
-    font-size: 22px;
+  color: white;
+  font-size: 25px;
+  padding-left: 10px;
 }
 .search {
     width: 400px;
     height: 45px;
     border: none;
     font-size: 18px;
+    padding-left: 10px;
+    margin-left: 50px;
 }
 .search:focus {
     outline: none;   /* elimina el borde negro */
@@ -127,7 +141,7 @@
 .conteiner-card-resultados {
     position: fixed;
     top: 100px;
-    left: 430px;
+    left: 200px;
     height: 250px;      /* alto fijo */
     overflow-y: auto;   /* scroll vertical automático */
     overflow-x: hidden; /* oculta scroll horizontal */
@@ -151,8 +165,8 @@
     align-items: center;
     height: 100px;
     gap: 20px;
-    font-size: 20px;
-    width: 450px;
+    font-size: 18px;
+    width: 400px;
     background-color: white;
     padding: 0 10px 0 10px;
     border-left: solid 1px rgb(194, 192, 192);
@@ -172,7 +186,7 @@
     margin-top: 100px;
     width: 100%;
     height: 60px;
-    background-color: rgb(236, 255, 255);
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -182,7 +196,7 @@
     gap: 30px;
     border-bottom: 2px solid rgb(175, 175, 175);
     border-top: 2px solid rgb(175, 175, 175);
-    position: fixed;
+    position: fixed;       
     z-index: 1;
 }
 .categorias-conteiner a {
@@ -193,7 +207,6 @@
     height: 160px;
 }
 .carousel {
-
     width: 100%;
     overflow: hidden;
   }
@@ -299,3 +312,143 @@
     font-size: 15px;
     color: rgb(70, 70, 70);
 }
+
+
+
+/* ============================= */
+/* MEDIA QUERIES - TABLETS       */
+/* ============================= */
+@media (max-width: 1124px) {
+    .nav {
+      height: 80px;
+      padding: 0 15px;
+    }
+    .nav img {
+      width: 80px;
+      height: auto;
+    }
+    .categorias-conteiner {
+        margin-top: 80px;
+    }
+    .search-conteiner {
+      width: 400px;
+    }
+    .search {
+      width: 250px;
+      font-size: 16px;
+    }
+    .conteiner-card-resultados {
+      top: 80px;
+      left: 140px;
+    }
+    .card-resultados {
+      width: 250px;
+    }
+    .lista-nav {
+      gap: 10px;
+    }
+    .card {
+      width: 280px;
+      height: auto;
+    }
+    .card img {
+      width: 250px;
+      height: auto;
+    }
+    .triplo {
+      width: 100%;
+    }
+    .triplo-images img {
+      width: 250px;
+    }
+    .carousel-images a {
+        margin-top: 130px;
+    }
+  }
+  
+  /* ============================= */
+  /* MEDIA QUERIES - CELULARES     */
+  /* ============================= */
+  @media (max-width: 768px) {
+    .nav {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+      gap: 10px;
+    }
+    .nav img {
+      width: 90px;
+      height: 60px;
+    }
+    .search-conteiner {
+      width: 100%;
+    }
+    .search {
+      width: 100%;
+      font-size: 14px;
+    }
+    .lista-nav {
+      width: 100%;
+      justify-content: center;
+      gap: 15px;
+    }
+    .lista-nav li {
+      height: auto;
+      font-size: 14px;
+    }
+  
+    /* categorías en scroll horizontal */
+    .categorias-conteiner {
+        font-size: 16px;
+        gap: 15px;
+        overflow-x: auto;
+        white-space: nowrap;
+        height: auto;
+        padding: 10px;
+    }
+    .carousel-images {
+        margin-top: 65px;
+    }
+    /* cards en una sola columna */
+    .card-conteiner {
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .card {
+        width: 200px;
+        
+        max-width: 200px;
+    }
+    .card img {
+      width: 200px;
+      height: auto;
+    }
+  
+    /* triplo: imágenes en columna */
+    .triplo {
+      flex-direction: column;
+      gap: 15px;
+    }
+    .triplo-images img {
+      width: 140px;
+      margin: auto;
+    }
+  
+    /* buscador resultados ajustado */
+    .conteiner-card-resultados {
+      top: 80px;
+      left: 0;
+      width: 100%;
+      max-height: 200px;
+    }
+    .card-resultados {
+      width: 100%;
+      font-size: 16px;
+    }
+    .panel-opciones {
+      display: none;
+    }
+  }
