@@ -5,7 +5,7 @@ const router = Router();
 
 // Inicializar MercadoPago con tu Access Token
 const client = new MercadoPagoConfig({
-  accessToken: "APP_USR-1959254343473188-093022-5cd4c9bf306e5baf30bf88952d6fbf68-455103814"
+  accessToken: process.env.MP_ACCESS_TOKEN
 });
 
 router.post("/create_preference", async (req, res) => {
