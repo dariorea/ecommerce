@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>¡Pago aprobado! 🎉</h1>
+    <p>Tu compra fue realizada con éxito.</p>
+  
+    <h3>Detalles:</h3>
+    <ul id="detalles"></ul>
+  
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const detalles = document.getElementById("detalles");
+  
+      ["payment_id", "status", "merchant_order_id", "preference_id"].forEach(key => {
+        if (params.has(key)) {
+          const li = document.createElement("li");
+          li.textContent = `${key}: ${params.get(key)}`;
+          detalles.appendChild(li);
+        }
+      });
+    </script>
+</body>
+</html>

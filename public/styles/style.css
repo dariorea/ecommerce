@@ -11,17 +11,16 @@
 }
 /* Estilo del scroll */
 body::-webkit-scrollbar {
-  width: 5px;              /* ancho de la barra */
+  width: 10px;              /* ancho de la barra */
 }
 /* Fondo de la barra */
 body::-webkit-scrollbar-track {
   background: rgb(199, 199, 199);       
-  border-radius: 5px;
+  border-radius: 10px;
 }
 /* "Thumb" (la parte que se mueve) */
 body::-webkit-scrollbar-thumb {
-  background: var(--naranja);          
-  border-radius: 5px;
+  background:var(--naranja);          
 }
 .nav {
     background-color: var(--naranja);
@@ -377,15 +376,21 @@ body::-webkit-scrollbar-thumb {
       gap: 10px;
     }
     .nav img {
-      width: 90px;
-      height: 60px;
+      width: 120px;
+      height: 80px;
+    }
+    .search-conteiner i {
+      display: none;
     }
     .search-conteiner {
       width: 100%;
+      flex-direction: column;
+
     }
     .search {
       width: 100%;
       font-size: 14px;
+      margin: 0;
     }
     .lista-nav {
       width: 100%;

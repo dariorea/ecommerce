@@ -111,3 +111,12 @@ GET http://localhost:3000/api/orders/product/remera
 
 ###
 DELETE http://localhost:3000/api/orders/68b4f27db4e1a5856e9f2e3f
+
+###
+POST http://localhost:3000/api/payments/create_preference
+
+{
+  "products": [
+    { "product": "REMERA TEST", "quantity": 1, "size": "M", "price": 89 }
+  ]
+}

@@ -1,6 +1,4 @@
 import { API_URL } from "./config.js";
-// Recuperar token guardado al iniciar sesión
-const token = localStorage.getItem("token");
 
 let isRegister = false;
 
@@ -42,7 +40,6 @@ document.getElementById("submit-btn").addEventListener("click", async () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("userId", data.user._id);
         localStorage.setItem("userName", data.user.name);
-        localStorage.setItem("userEmail", data.user.email)
         localStorage.setItem("role", data.user.role)
 
         alert("✅ Bienvenido " + data.user.name);

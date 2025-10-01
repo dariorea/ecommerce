@@ -1,6 +1,14 @@
 import { API_URL } from "./config.js";
-const token = localStorage.getItem("token"); // 👈 Solo admins deberían tener acceso
-const userId = localStorage.getItem("userId")
+import { initUserUI, userRole, userName} from "./modules/user.js";
+import { initAdminUI } from "./modules/adminUi.js";
+import { logout } from "./admin/auth.js";
+import { abrirCerrar } from "./modules/cardProduct.js";
+
+
+initAdminUI(userRole, abrirCerrar)
+initUserUI(userName, abrirCerrar ,logout)
+
+const userId = localStorage.getItem("userId");
 const cargarOrdenes = async () => {
     const res = await fetch(`${API_URL}/api/orders/user/${userId}`);
     const data = await res.json();
