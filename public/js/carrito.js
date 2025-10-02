@@ -1,10 +1,9 @@
 import { API_URL } from "./config.js";
+import {token} from "./modules/user.js"
 
 // Leer carrito desde localStorage
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-// Recuperar token guardado al iniciar sesión
-const token = localStorage.getItem("token");
 
 // Contenedores del DOM
 const carritoContainer = document.getElementById("carrito-container");
@@ -61,18 +60,13 @@ function renderCarrito() {
   totalContainer.appendChild(totalTexto);
 
   // Botón finalizar compra (crear orden en DB)
-  const btnFinalizar = document.createElement("button");
-  btnFinalizar.textContent = "Finalizar compra";
+  const btnFinalizar = document.createElement("a");
+  btnFinalizar.textContent = "comprar ahora";
   btnFinalizar.classList.add("btn-finalizar");
-  btnFinalizar.addEventListener("click", finalizarCompra);
+  btnFinalizar.href =`${API_URL}/pages/payment.html`
+  //btnFinalizar.addEventListener("click", finalizarCompra);
   totalContainer.appendChild(btnFinalizar);
 
-  // Botón pagar con Mercado Pago
-  const btnPagar = document.createElement("button");
-  btnPagar.textContent = "Pagar con Mercado Pago";
-  btnPagar.classList.add("btn-pagar");
-  btnPagar.addEventListener("click", pagarConMercadoPago);
-  totalContainer.appendChild(btnPagar);
 }
 
 // Eliminar producto del carrito
@@ -119,41 +113,6 @@ async function finalizarCompra() {
   }
 }
 
-// Pagar con Mercado Pago
-async function pagarConMercadoPago() {
-  if (carrito.length === 0) return alert("El carrito está vacío :c");
-
-  try {
-    const res = await fetch(`${API_URL}/api/payments/create_preference`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
-      body: JSON.stringify({
-        products: carrito.map(item => ({
-          title: item.name,
-          quantity: Number(item.quantity),
-          price: Number(item.price)
-        }))
-      })
-    });
-
-    const data = await res.json();
-
-    if (data.id) {
-      const mp = new MercadoPago("APP_USR-070dada1-0f66-488e-a24d-6b0514d2357b", {
-        locale: "es-AR"
-      });
-      mp.checkout({ preference: { id: data.id }, autoOpen: true });
-    } else {
-      alert("⚠️ No se pudo iniciar el pago");
-    }
-  } catch (error) {
-    console.error(error);
-    alert("❌ Error al intentar pagar con Mercado Pago");
-  }
-}
 
 // Inicializar render
 renderCarrito();

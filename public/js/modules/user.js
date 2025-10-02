@@ -1,6 +1,11 @@
 // Usuario
 export const userName = localStorage.getItem("userName");
 export const userRole = localStorage.getItem("role");
+export const tokenUserID = localStorage.getItem("userId")
+export const token = localStorage.getItem("token")
+
+export let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 
 
 export function initUserUI(userName, abrirCerrar, logout) {
