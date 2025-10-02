@@ -1,9 +1,21 @@
 import { API_URL } from "./config.js";
 import {token} from "./modules/user.js"
+import { logout } from "./admin/auth.js"
+import { abrirCerrar, initBuscador } from "./modules/cardProduct.js";
+import { initUserUI, userRole, userName} from "./modules/user.js";
+import { initAdminUI } from "./modules/adminUi.js";
 
-// Leer carrito desde localStorage
+
+initUserUI(userName, abrirCerrar, logout)
+initAdminUI(userRole, abrirCerrar)
+
+initBuscador({
+    inputId: "buscador",
+    resultadosId: "conteiner-resultados",
+    apiUrl: API_URL
+})
+
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
 
 // Contenedores del DOM
 const carritoContainer = document.getElementById("carrito-container");
@@ -28,11 +40,15 @@ function renderCarrito() {
   carrito.forEach(item => {
     const card = document.createElement("div");
     card.classList.add("card");
+    const imgConteiner = document.createElement("div")
+    imgConteiner.classList.add("img-conteiner")
 
     const img = document.createElement("img");
     img.src = `../images/${item.image}`;
     img.alt = item.name;
 
+    const infoConteiner = document.createElement("div")
+    infoConteiner.classList.add("info-conteiner")
     const name = document.createElement("h3");
     name.textContent = `${item.name} (${item.size || "-"})`;
 
@@ -47,12 +63,15 @@ function renderCarrito() {
     total += item.price * item.quantity;
 
     const btnEliminar = document.createElement("button");
-    btnEliminar.textContent = "❌";
+    btnEliminar.innerHTML = `<i class="bi bi-trash-fill"></i>`
     btnEliminar.classList.add("btn-eliminar");
     btnEliminar.addEventListener("click", () => eliminarProducto(item));
-
-    [img, name, cantidad, price, subtotal, btnEliminar].forEach(el => card.appendChild(el));
-    carritoContainer.appendChild(card);
+    
+    imgConteiner.appendChild(img)
+    infoConteiner.append(name, cantidad, price, subtotal, btnEliminar)
+    card.appendChild(imgConteiner)
+    card.appendChild(infoConteiner);
+    carritoContainer.appendChild(card)
   });
 
   const totalTexto = document.createElement("p");

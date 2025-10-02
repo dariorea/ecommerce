@@ -43,7 +43,7 @@ const renderCarrito = ()=>{
     });
 
     const totalPrice = document.createElement("h3")
-    totalPrice.textContent = `  Precio total: $${total}`
+    totalPrice.textContent = `Total: $${total}`
     carritoConteiner.appendChild(totalPrice)
 }
 

@@ -11,6 +11,8 @@ function toggleForm() {
     ? "¿Ya tienes cuenta? Inicia sesión" 
     : "¿No tienes cuenta? Regístrate";
 }
+document.querySelector(".toggle").addEventListener("click", toggleForm);
+
 
 document.getElementById("submit-btn").addEventListener("click", async () => {
     const name = document.getElementById("name").value;

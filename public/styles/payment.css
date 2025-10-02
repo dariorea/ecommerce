@@ -5,7 +5,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Montserrat", sans-serif;
     box-sizing: border-box;
 
 }
@@ -181,14 +181,45 @@ body::-webkit-scrollbar-thumb {
     text-decoration: none;
     color: black;
 }
-
-.main-conteiner {
+.categorias-conteiner {
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    font-weight: 500;
+    font-size: 20px;
+    gap: 30px;
+    border-bottom: 2px solid rgb(221, 221, 221);
+    border-top: 2px solid rgb(221, 221, 221);
+    position: absolute;       
+    z-index: 1;
+    top: 100px
+}
+.categorias-conteiner a {
+    text-decoration: none;
+    color: black;
+}
+.main-title {
     margin-top: 120px;
+    font-size: 18px;
+    display: flex;
+    padding-left: 50px;
+}
+.main-conteiner {
+    margin-top: 20px;
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+}
+.checkout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 .envio-conteiner {
     border: 1px solid rgb(228, 228, 228);
@@ -199,6 +230,10 @@ body::-webkit-scrollbar-thumb {
     width: 500px;
     border: 1px solid rgb(228, 228, 228);
     border-radius: 5px;
+}
+.carrito-conteiner h3 {
+    font-size: 20px;
+    font-weight: 700;
 }
 .metodo-pago-conteiner {
     width: 500px;
@@ -222,6 +257,15 @@ body::-webkit-scrollbar-thumb {
     width: 100px;
 }
 .title {
+    margin-top: 160px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+.title-div {
     width: 100%;
     height: 80px;
     display: flex;
@@ -239,6 +283,7 @@ body::-webkit-scrollbar-thumb {
     width: 100px;
 }
 .card-product h3 {
+    font-size: 20px;
     font-weight: 700;
 }
 .card-product h4 {
@@ -247,8 +292,8 @@ body::-webkit-scrollbar-thumb {
 }
 .btn-pagar {
     width: 100%;
-    height: 50px;
-    background-color: var(--naranja);
+    height: 60px;
+    background-color: black;
     border: none;
     color: white;
     font-size: 18px;

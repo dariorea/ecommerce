@@ -9,7 +9,7 @@ export const registrarUser = async (req, res) => {
     try {
         const {name, email, password} = req.body;
         const hashed = await bcrypt.hash(password, 10);
-        const user = new User({name, email, password: hashed, role: "admin"});
+        const user = new User({name, email, password: hashed, role: "user"});
         await user.save();
 
         //generamos el token
