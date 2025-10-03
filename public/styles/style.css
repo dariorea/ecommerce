@@ -1,5 +1,7 @@
 :root {
     --naranja: rgb(238, 44, 30);
+    --gris : rgb(221, 221, 221);
+    
 }
 /* Reset de Estilos */
 * {
@@ -66,12 +68,13 @@ body::-webkit-scrollbar-thumb {
     box-shadow: none; /* por si el navegador agrega sombras */
 }
 .lista-nav {
-    width: 300px;
+    
     display: flex;
     list-style: none;
     align-items: center;
     justify-content: centers;
-    gap: 20px;
+    gap: 30px;
+    padding-right: 30px;
 }
 .lista-nav li {
     height: 100px;
@@ -83,6 +86,9 @@ body::-webkit-scrollbar-thumb {
 .lista-nav a {
     display: flex;
     align-items: center;
+}
+.lista-nav img {
+  width: 100px;
 }
 #name-user {
     display: none;
@@ -115,12 +121,12 @@ body::-webkit-scrollbar-thumb {
     color: white;
 }
 .panel-opciones {
-    right: 130px;
+    right: 90px;
     display: none;
 
 }
 .panel-admin {
-    right: 270px;
+    right: 240px;
     display: none;
 }
 .panel-admin a, .panel-opciones a {
@@ -168,8 +174,8 @@ body::-webkit-scrollbar-thumb {
     width: 400px;
     background-color: white;
     padding: 0 10px 0 10px;
-    border-left: solid 1px rgb(194, 192, 192);
-    border-bottom: solid 1px rgb(194, 192, 192);
+    border-left: solid 1px var(--gris);
+    border-bottom: solid 1px var(--gris);
 
 }
 .card-resultados img {
@@ -182,7 +188,7 @@ body::-webkit-scrollbar-thumb {
     color: black;
 }
 .categorias-conteiner {
-    margin-top: 100px;
+    top: 100px;
     width: 100%;
     height: 60px;
     background-color: white;
@@ -193,8 +199,8 @@ body::-webkit-scrollbar-thumb {
     font-weight: 500;
     font-size: 20px;
     gap: 30px;
-    border-bottom: 2px solid rgb(175, 175, 175);
-    border-top: 2px solid rgb(175, 175, 175);
+    border-bottom: 2px solid var(--gris);
+    border-top: 2px solid var(--gris);
     position: fixed;       
     z-index: 1;
 }
@@ -202,9 +208,16 @@ body::-webkit-scrollbar-thumb {
     text-decoration: none;
     color: black;
 }
-.category-title {
-    height: 160px;
+  .category-title {
+    margin-top: 160px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    border-bottom: 1px solid rgb(221, 221, 221);
 }
+
 .carousel {
     width: 100%;
     overflow: hidden;
@@ -263,7 +276,7 @@ body::-webkit-scrollbar-thumb {
     gap: 20px;
 }
 .triplo-images img {
-    width: 450px;
+    width: 400px;
 }
 .title {
     height: 80px;
@@ -281,7 +294,7 @@ body::-webkit-scrollbar-thumb {
     gap: 10px;
 }
 .card {
-    width: 340px;
+    width: 320px;
     height: 430px;
     display: flex;
     color: rgb(46, 46, 46);
@@ -293,11 +306,9 @@ body::-webkit-scrollbar-thumb {
     text-decoration: none;
     transition: .2s ease-in;
 }
-.card:hover {
-    border: solid 2px black;
-}
+
 .card img {
-    width: 320px;
+    width: 300px;
     height: 300px;
 }
 .card-title {

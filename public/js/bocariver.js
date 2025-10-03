@@ -8,10 +8,21 @@ const cargarProductos = async () => {
     const data = await res.json();
 console.log("hola")
     data.products.forEach(p => {
-        if(p.type === "boca" || p.type === "river") {
-            const card = crearCardProducto(p, API_URL)
-            conteinerProducts.appendChild(card)
+        if (conteinerProducts.id === "bover") {
+            if( p.type === "boca" || p.type === "river") {
+                const card = crearCardProducto(p, API_URL)
+                conteinerProducts.appendChild(card)
+            }
+            return
         }
+        if (conteinerProducts.id === "adizero") {
+            if(p.type === "adizero") {
+                const card = crearCardProducto(p, API_URL)
+                conteinerProducts.appendChild(card)   
+            }
+            return
+        }
+
     });
 }
 cargarProductos()

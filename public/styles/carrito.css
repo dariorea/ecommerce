@@ -202,9 +202,7 @@ body::-webkit-scrollbar-thumb {
     text-decoration: none;
     color: black;
 }
-.category-title {
-    margin-top: 160px;
-}
+
 .title {
     margin-top: 160px;
     height: 120px;

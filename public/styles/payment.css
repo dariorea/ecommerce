@@ -230,6 +230,7 @@ body::-webkit-scrollbar-thumb {
     width: 500px;
     border: 1px solid rgb(228, 228, 228);
     border-radius: 5px;
+    margin-bottom: 30px;
 }
 .carrito-conteiner h3 {
     font-size: 20px;

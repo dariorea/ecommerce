@@ -24,7 +24,10 @@ const cargarProductos = async () => {
     const products = data.products
     
     products.forEach(p => {
-        if(p.category === category || p.subcategory === subcategory) {
+        if (category === "kids" && p.category === "unisex" && p.type === "nokids") {
+            return
+        }
+        if(p.category === category || p.category === "unisex" || p.subcategory === subcategory) {
             const card = crearCardProducto(p, API_URL)
             conteinerProducts.appendChild(card);
         }

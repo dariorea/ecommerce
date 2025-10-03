@@ -181,7 +181,13 @@ export const cargarProductos = async () => {
 
         const idProduct = document.createElement("h3");
         idProduct.textContent = `Item ID: ${p._id}`
-        idProduct.classList.add("card-item")
+        idProduct.classList.add("card-item");
+
+        const categoryProduct = document.createElement("h3")
+        categoryProduct.textContent = `Category: ${p.category}`
+
+        const subcategoryProduct = document.createElement("h3")
+        subcategoryProduct.textContent = `subcategory: ${p.subcategory}`
 
         const priceProduct = document.createElement("h3");
         priceProduct.textContent = `precio: $${p.price}`;
@@ -197,7 +203,7 @@ export const cargarProductos = async () => {
             sizesDiv.appendChild(btn)
         })
 
-        card.append(imagen, nameProduct, idProduct, priceProduct, sizesDiv)
+        card.append(imagen, nameProduct, idProduct, categoryProduct, subcategoryProduct, priceProduct, sizesDiv)
         conteinerCard.appendChild(card)
     });
 }

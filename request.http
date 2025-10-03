@@ -29,23 +29,28 @@ DELETE http://localhost:3000/api/users/68b0cf01eaa8ee2325c7dd17
 
 ###
 POST http://localhost:3000/api/products
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzlkMzA2NDkxYmY5NjRjMmUzZmYwOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1ODg2NTUwMywiZXhwIjoxNzU4OTUxOTAzfQ.xsGGwc9mEow3fECTe04klyMT56whAOwYQeaC6VR3JmE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZDk4MTg3YmFmNjc1ZWVkYmM3MWI0MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1OTQ2NjI2MiwiZXhwIjoxNzU5NTUyNjYyfQ.ZaYMNr2uild3ocMqU62o-zJsnwAjV7BqabCdpPgG2-o
 Content-Type: application/json
 
 {
-    "name": "Buzo con Cierre River Plate adidas UBP 2025 Hombre",
-    "category": "hombre",
-    "type": "ropa",
-    "price": 179999,
-    "image": "campera-river.webp",
+    "name": "ZAPATILLAS ADIOS PRO 4 ADIZERO",
+    "category": "mujer",
+    "subcategory": "calzado",
+    "price": 349999,
+    "type": "adizero",
+    "image": "adidas-rosa.webp",
     "sizes": [
-        { "size": "XS", "stock": 0 },
-        { "size": "S", "stock": 18 },
-        { "size": "M", "stock": 40 },
-        { "size": "L", "stock": 64 },
-        { "size": "XL", "stock": 42 },
-        { "size": "XXL", "stock": 40 },
-        { "size": "XXXL", "stock": 0 }
+        { "size": "35", "stock": 50 },
+        { "size": "35.5", "stock": 18 },
+        { "size": "36", "stock": 40 },
+        { "size": "36.5", "stock": 64 },
+        { "size": "37", "stock": 42 },
+        { "size": "38", "stock": 40 },
+        { "size": "38.5", "stock": 50 },
+        { "size": "39", "stock": 40 },
+        { "size": "39.5", "stock": 0 },
+        { "size": "40", "stock": 40 },
+        { "size": "41", "stock": 0 }
     ]
 }
 
@@ -69,12 +74,10 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:3000/api/products/68d22ef4bceda03fb4507d28
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZDk4MTg3YmFmNjc1ZWVkYmM3MWI0MSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1OTA4NDkzOSwiZXhwIjoxNzU5MTcxMzM5fQ.hw1_4KUErJvu0_pIVF8wW2aukdN5vC_zfubqmlhEjqQ
-Content-Type: application/json
-
+PATCH http://localhost:3000/api/products/68d231f5bceda03fb4507ecc
+Authorization: Bearer 
 {
-    "subcategory": "calzado"
+    "type": "nokids"
 }
 
 ###

@@ -14,13 +14,15 @@ initBuscador({
 })
 
 const envioConteiner = document.getElementById("envio-conteiner")
+const carritoConteiner = document.getElementById("carrito-conteiner")
 
 const nameUser = document.createElement("p")
+nameUser.textContent = `${userName}`
+const nameDirection = document.createElement("p")
+nameDirection.textContent = `general paz 1697`
+envioConteiner.append(nameUser, nameDirection)
 
-nameUser.innerText = `${userName}`
-envioConteiner.appendChild(nameUser)
 
-const carritoConteiner = document.getElementById("carrito-conteiner")
 const renderCarrito = ()=>{
     let total= 0
     carrito.forEach(item => {
