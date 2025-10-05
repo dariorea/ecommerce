@@ -6,7 +6,7 @@ import { initAdminUI } from "./modules/adminUi.js";
 // ELEMENTOS DEL DOM ===============================================================
 // Carrusel
 const images = document.querySelector(".carousel-images");
-const totalImages = document.querySelectorAll(".carousel-images img").length;
+const totalImages = document.querySelectorAll(".carousel-images a").length;
 
 // EVENTOS admin ====================================================================
 initAdminUI(userRole, abrirCerrar)
