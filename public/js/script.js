@@ -37,6 +37,12 @@ initBuscador({
     resultadosId: "conteiner-resultados",
     apiUrl: API_URL
 });
+initBuscador({
+    inputId: "buscador-dos",
+    resultadosId: "conteiner-resultados",
+    apiUrl: API_URL
+});
+
 // ================================================================================
 // CARRUSEL =======================================================================
 let index = 0;

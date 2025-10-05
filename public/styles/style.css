@@ -67,6 +67,9 @@ body::-webkit-scrollbar-thumb {
     outline: none;   /* elimina el borde negro */
     box-shadow: none; /* por si el navegador agrega sombras */
 }
+.desactive {
+  display: none;
+}
 .lista-nav {
     display: flex;
     list-style: none;
@@ -104,31 +107,29 @@ body::-webkit-scrollbar-thumb {
 .panel {
     width: 250px;
     top: 100px;
-    background-color: var(--naranja);
+    background-color: white;
     position: absolute;
     font-size: 20px;
     flex-direction: column;
     padding-left: 10px;
     position: fixed;
     z-index: 5;
+    border: solid 1px var(--gris);
 }
 .exit, .exit-user{
     display: flex;
     justify-content: end;
     padding-right: 10px;
-    color: white;
+    color: var(--naranja);
 }
 .panel-opciones {
-    right: 90px;
     display: none;
-
 }
 .panel-admin {
-    right: 240px;
     display: none;
 }
 .panel-admin a, .panel-opciones a {
-    color: white;
+    color: var(--naranja);
     text-decoration: none;
     height: 50px;
 }
@@ -343,9 +344,15 @@ body::-webkit-scrollbar-thumb {
 
 
 @media (min-width: 1125px) {
-  .lista-nav {
-    padding-right: 30px;
-  }
+    .lista-nav {
+        padding-right: 30px;
+    }
+    .panel-opciones {
+        right: 90px;
+    }
+    .panel-admin {
+        right: 240px;
+    }
 }
 
 
@@ -365,7 +372,7 @@ body::-webkit-scrollbar-thumb {
     }
 
     .categorias-conteiner {
-        margin-top: 80px;
+      top: 80px;
     }
     .search-conteiner {
       width: 400px;
@@ -407,6 +414,11 @@ body::-webkit-scrollbar-thumb {
   /* MEDIA QUERIES - CELULARES     */
   /* ============================= */
   @media (max-width: 768px) {
+    .panel {
+      width: 100%;
+      top: 80px;
+      z-index: 1000;
+    }
     .nav {
       padding: 0 10px 0 10px;
     }
@@ -420,12 +432,8 @@ body::-webkit-scrollbar-thumb {
     }
     .search-conteiner {
       width: 200px;
-
     }
     .search {
-      width: 100%;
-      font-size: 14px;
-      margin: 0;
       display: none;
     }
     .lista-nav {
@@ -450,7 +458,26 @@ body::-webkit-scrollbar-thumb {
     .lista-nav img {
       display: none;
     }
-  
+
+    .search-conteiner-dos {
+      top: 80px;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      background-color: white;
+      width: 100%;
+      z-index: 100;
+    }
+    .search-dos {
+      width: 80%;
+      height: 50px;
+      border: solid 1px rgb(117, 117, 117);
+    }
+    .conteiner-card-resultados {
+      margin-top: 70px;
+    }
     /* categorías en scroll horizontal */
     .categorias-conteiner {
         font-size: 16px;
@@ -461,11 +488,11 @@ body::-webkit-scrollbar-thumb {
         display: none;
     }
     .carousel {
-      margin-top: 80px;
+      margin-top: 160px;
     }
 
     .carousel button {
-      top: 120px;
+      top: 200px;
       font-size: 10px;
       height: 20px;
       width: 20px;
@@ -527,6 +554,9 @@ body::-webkit-scrollbar-thumb {
     .card-resultados {
       width: 100%;
       font-size: 16px;
+    }
+    .resultados {
+      z-index: 100;
     }
     .panel-opciones {
       display: none;

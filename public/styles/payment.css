@@ -300,3 +300,21 @@ body::-webkit-scrollbar-thumb {
     font-size: 18px;
     border-radius: 5px;
 }
+@media (max-width:768px) {
+    .main-conteiner {
+        width: 100%;
+    }
+    .carrito-conteiner {
+        width: 100%;
+    }
+    .checkout {
+        width: 100%;
+    }
+    .metodo-pago-conteiner {
+        width: 100%;
+        gap: 5px;
+    }
+    .envio-conteiner {
+        width: 100%;
+    }
+}
