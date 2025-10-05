@@ -75,7 +75,7 @@ body::-webkit-scrollbar-thumb {
     gap: 30px;
 }
 .lista-nav li {
-    height: 100px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -295,7 +295,7 @@ body::-webkit-scrollbar-thumb {
 }
 .card {
     width: 320px;
-    height: 430px;
+    height: auto;
     display: flex;
     color: rgb(46, 46, 46);
     flex-direction: column;
@@ -383,6 +383,7 @@ body::-webkit-scrollbar-thumb {
     }
     .lista-nav {
       gap: 10px;
+      font-size: 10px;
     }
 
     .card {
@@ -408,18 +409,17 @@ body::-webkit-scrollbar-thumb {
   @media (max-width: 768px) {
     .nav {
       padding: 0 10px 0 10px;
-      gap: 10px;
     }
     .nav img {
-      width: 120px;
+      width: 100px;
       height: 80px;
-      border: solid 1px white;
+  
     }
     .search-conteiner i {
       display: none;
     }
     .search-conteiner {
-      width: 300px;
+      width: 200px;
 
     }
     .search {
@@ -429,14 +429,23 @@ body::-webkit-scrollbar-thumb {
       display: none;
     }
     .lista-nav {
-      width: 250px;
+      width: 260px;
+      height: 60px;
       justify-content: center;
-      gap: 15px;
-      border: solid 1px white;
+      gap: 10px;
+    
     }
-    .lista-nav li {
-      height: auto;
-      font-size: 14px;
+    .lista-nav {
+      height: 100%;
+      font-size: 10px;
+    }
+
+    #name-user {
+      text-align: center;
+      font-size: 15px;
+    }
+    .lista-nav i {
+      font-size: 22px;
     }
     .lista-nav img {
       display: none;
@@ -456,7 +465,14 @@ body::-webkit-scrollbar-thumb {
     }
 
     .carousel button {
-      top: 30%;
+      top: 120px;
+      font-size: 10px;
+      height: 20px;
+      width: 20px;
+    }
+
+    .triplo-title {
+      font-size: 13px;
     }
     /* cards en una sola columna */
     .card-conteiner {
@@ -467,23 +483,38 @@ body::-webkit-scrollbar-thumb {
 
     }
     .card {
-        width: 200px;
-        
-        max-width: 200px;
+        width: 150px;
+        max-width: 150px;
     }
     .card img {
-      width: 200px;
+      width: 150px;
       height: auto;
+    }
+    .card-title {
+      font-size: 12px;
+      height: 50px;
+    }
+    .card-price {
+      font-size: 12px;
+      height: 40px;
     }
   
     /* triplo: imágenes en columna */
-    .triplo {
-      flex-direction: column;
-      gap: 15px;
+    .triplo-images {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 0.5rem;
     }
+  
+    .triplo-images a {
+      flex: 0 0 80%; /* ancho visible por item */
+      scroll-snap-align: center;
+    }
+  
     .triplo-images img {
-      width: 140px;
-      margin: auto;
+      width: 100%;
+      height: auto;
     }
   
     /* buscador resultados ajustado */
